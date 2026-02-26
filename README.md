@@ -1,21 +1,27 @@
 # Awesome PDF
 
-Initial Android project structure using Kotlin + Jetpack Compose + Material 3.
+Android app built with Kotlin + Jetpack Compose + Material 3, following MVVM + Clean Architecture.
 
-## Implemented in this step
-- App entry + Material 3 Compose theme.
-- Navigation flow: `Splash -> Onboarding -> Main`.
-- Main area with bottom navigation (5 tabs): Home, Tools, Files, AI, Settings.
-- Placeholder screens for all tabs.
+## Implemented
+- Navigation flow: Splash -> Onboarding -> Auth -> Main.
+- Main uses Bottom Navigation: Home / Tools / Files / AI / Settings.
+- Tool stubs with file picker: Merge, Split, Compress, Images to PDF.
+- Firebase initialization (Auth, Firestore, Analytics, Crashlytics, Remote Config).
+- Billing scaffold + paywall UI + debug fake entitlement toggle.
+- AI screen with stubbed backend-proxy responses and quota counter.
+- WorkManager stub for long running PDF processing.
+- Unit tests for entitlement manager and summarize use case.
 
-## Project layout
-- `app/src/main/java/com/awesomepdf/presentation/navigation` - navigation graph
-- `app/src/main/java/com/awesomepdf/presentation/splash` - splash screen
-- `app/src/main/java/com/awesomepdf/presentation/onboarding` - onboarding screen
-- `app/src/main/java/com/awesomepdf/presentation/main/*` - tab placeholder screens
-- `app/src/main/java/com/awesomepdf/ui/theme` - Material 3 theme files
+## Package structure
+- `domain/` models, repositories, use cases
+- `data/` repository implementations
+- `presentation/` Compose screens + view models
+- `di/` Hilt modules
+- `worker/` WorkManager workers
 
-## Run
-1. Open in Android Studio.
-2. Sync Gradle.
-3. Run the `app` configuration on an emulator/device.
+## Build
+1. Use JDK 17.
+2. Open in Android Studio Iguana+.
+3. Sync Gradle and run app.
+
+> Firebase/Google services files are not committed in this scaffold. Add your own `google-services.json` if needed for production setup.
