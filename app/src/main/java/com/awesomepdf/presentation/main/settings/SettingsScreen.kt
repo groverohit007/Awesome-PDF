@@ -4,7 +4,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Button
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -18,26 +17,21 @@ import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
 fun SettingsScreen(viewModel: SettingsViewModel = hiltViewModel()) {
-    val entitlement by viewModel.entitlementState.collectAsState()
-    val debugToggle = remember { mutableStateOf(false) }
+    val entitlement by viewModel.entitlement.collectAsState()
+    val debug = remember { mutableStateOf(false) }
 
     Column(
         modifier = Modifier.fillMaxSize().padding(24.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp)
+        verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         Text("Settings")
-        Text("Entitlement: ${entitlement.tier} (${entitlement.source})")
-
-        Button(onClick = { viewModel.restorePurchases() }) {
-            Text("Restore Purchases")
-        }
-
+        Text("Current plan: ${entitlement.planType} (${entitlement.source})")
         if (viewModel.debugEnabled) {
-            Text("Debug fake entitlement")
+            Text("Debug entitlement override")
             Switch(
-                checked = debugToggle.value,
+                checked = debug.value,
                 onCheckedChange = {
-                    debugToggle.value = it
+                    debug.value = it
                     viewModel.toggleDebugEntitlement(it)
                 }
             )

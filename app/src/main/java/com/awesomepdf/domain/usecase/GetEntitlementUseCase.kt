@@ -1,12 +1,12 @@
 package com.awesomepdf.domain.usecase
 
-import com.awesomepdf.domain.model.EntitlementState
+import com.awesomepdf.domain.model.Entitlement
 import com.awesomepdf.domain.repository.BillingRepository
-import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.StateFlow
 import javax.inject.Inject
 
 class GetEntitlementUseCase @Inject constructor(
     private val billingRepository: BillingRepository
 ) {
-    operator fun invoke(): Flow<EntitlementState> = billingRepository.entitlementState
+    operator fun invoke(): StateFlow<Entitlement> = billingRepository.entitlement
 }

@@ -3,11 +3,9 @@ package com.awesomepdf.di
 import com.awesomepdf.data.ai.AiRepositoryImpl
 import com.awesomepdf.data.auth.AuthRepositoryImpl
 import com.awesomepdf.data.billing.BillingRepositoryImpl
-import com.awesomepdf.data.tools.AndroidPdfToolEngine
 import com.awesomepdf.domain.repository.AiRepository
 import com.awesomepdf.domain.repository.AuthRepository
 import com.awesomepdf.domain.repository.BillingRepository
-import com.awesomepdf.domain.tools.PdfToolEngine
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.Binds
@@ -28,9 +26,6 @@ abstract class RepositoryModule {
 
     @Binds
     abstract fun bindAuthRepository(impl: AuthRepositoryImpl): AuthRepository
-
-    @Binds
-    abstract fun bindPdfToolEngine(impl: AndroidPdfToolEngine): PdfToolEngine
 }
 
 @Module
