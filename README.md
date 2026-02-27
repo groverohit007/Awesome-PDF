@@ -21,6 +21,12 @@ Android app scaffold with Kotlin + Jetpack Compose + Material 3.
   - `EntitlementManager` publishes entitlement state flow.
   - `FeatureGate` protects AI screen for non-premium users.
   - Remote Config key `paywall_banner_enabled` controls paywall banner visibility on Home.
+- AI features with backend stub service:
+  - Retrofit + OkHttp stack with Authorization token placeholder header.
+  - Summarise PDF from selected file with extraction/upload placeholder.
+  - Make Notes as bullet list and export notes to Markdown.
+  - Ask PDF chat with citations placeholder.
+  - Monthly usage meter/quota UI.
 - Crashlytics:
   - Non-fatal errors recorded from merge tool flow failures.
 

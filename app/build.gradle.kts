@@ -29,10 +29,14 @@ android {
             )
             buildConfigField("boolean", "ENABLE_FAKE_ENTITLEMENT", "false")
             buildConfigField("String", "GOOGLE_WEB_CLIENT_ID", "\"\"")
+            buildConfigField("String", "AI_BASE_URL", "\"https://example.com/\"")
+            buildConfigField("String", "AI_AUTH_TOKEN", "\"token-placeholder\"")
         }
         debug {
             buildConfigField("boolean", "ENABLE_FAKE_ENTITLEMENT", "true")
             buildConfigField("String", "GOOGLE_WEB_CLIENT_ID", "\"\"")
+            buildConfigField("String", "AI_BASE_URL", "\"https://example.com/\"")
+            buildConfigField("String", "AI_AUTH_TOKEN", "\"token-placeholder\"")
         }
     }
 
@@ -75,6 +79,10 @@ dependencies {
     implementation("com.google.android.gms:play-services-auth:21.2.0")
     implementation("com.android.billingclient:billing-ktx:7.0.0")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.8.1")
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
     implementation("com.tom-roush:pdfbox-android:2.0.27.0")
 
     testImplementation("junit:junit:4.13.2")

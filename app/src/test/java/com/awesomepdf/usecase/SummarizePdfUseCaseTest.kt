@@ -1,5 +1,8 @@
 package com.awesomepdf.usecase
 
+import com.awesomepdf.domain.model.ai.ChatAnswer
+import com.awesomepdf.domain.model.ai.ChatMessage
+import com.awesomepdf.domain.model.ai.NotesResult
 import com.awesomepdf.domain.repository.AiRepository
 import com.awesomepdf.domain.usecase.SummarizePdfUseCase
 import com.google.common.truth.Truth.assertThat
@@ -12,7 +15,8 @@ class SummarizePdfUseCaseTest {
     fun `returns summary from repository`() = runTest {
         val repository = object : AiRepository {
             override suspend fun summarize(text: String): String = "summary:$text"
-            override suspend fun chat(prompt: String): String = "chat:$prompt"
+            override suspend fun makeNotes(text: String): NotesResult = NotesResult(emptyList())
+            override suspend fun chat(question: String, history: List<ChatMessage>): ChatAnswer = ChatAnswer("", emptyList())
         }
 
         val result = SummarizePdfUseCase(repository)("file content")
