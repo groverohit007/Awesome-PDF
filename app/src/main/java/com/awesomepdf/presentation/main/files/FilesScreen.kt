@@ -10,6 +10,6 @@ import androidx.compose.ui.Modifier
 @Composable
 fun FilesScreen() {
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        Text("Files")
+        Text("Recent files placeholder")
     }
 }
